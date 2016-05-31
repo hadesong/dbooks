@@ -11,4 +11,4 @@ flask \ bootstrap \ AJAX \ JavaScript \ BeautifulSoup
 ![image](https://github.com/hadesong/dbooks/raw/master/app_package/static/1.jpg)
 
 详情页
-![image](https://github.com/hadesong/dbooks/raw/master/app_package/static/1.jpg)
+![image](https://github.com/hadesong/dbooks/raw/master/app_package/static/2.jpg)
