@@ -1,0 +1,24 @@
+#main {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#search {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#foot {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color:#444444;
+    background-color:#eeeeee;
+}
+#change{
+	color:black;
+	width: 100%;
+	margin:0 auto;
+}
