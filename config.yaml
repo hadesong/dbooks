@@ -1,8 +1,8 @@
 libaries:
 - name:dbooks
   version:1
-handlers:
 
+  handlers:
 - url: /robots.txt
   static_path: robots.txt
 - url: /favicon.ico
