@@ -42,7 +42,7 @@ def search():
         title = str(soup_b.find('a' , class_='nbg')['title'])
 
         try:
-            intro = str(soup_b.find('span' , class_='all hidden ').find('div' , class_='intro'))
+            intro = str(soup_b.find('span' , class_='all hidden').find('div' , class_='intro'))
         except:
             intro = str(soup_b.find('div' , class_='intro'))
 
