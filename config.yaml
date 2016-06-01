@@ -8,4 +8,4 @@ handlers:
 - url: /favicon.ico
   static_path: favicon.ico
 - url: /static/
-  static_path: /static/
+  static_path: static
