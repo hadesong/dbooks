@@ -7,5 +7,5 @@ libaries:
   static_path: robots.txt
 - url: /favicon.ico
   static_path: favicon.ico
-- url: /static
-  static_path: /app_package/static
+- url: /static/
+  static_path: app_package/static
