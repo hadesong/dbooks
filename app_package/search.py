@@ -42,7 +42,7 @@ def search():
         title = str(soup_b.find('a' , class_='nbg')['title'])
 
         try:
-            intro = str(soup_b.find('span' , class_='all hidden').find('div' , class_='intro'))
+            intro = str(soup_b.find('span' , class_='all hidden ').find('div' , class_='intro'))
         except:
             intro = str(soup_b.find('div' , class_='intro'))
 
@@ -51,19 +51,24 @@ def search():
         author = soup_b.find('div' , id='info').find('a').string
 
 
-        try:
-            user = soup_b.find_all('span' , class_='comment-info')
-            content  = soup_b.find_all('p' , class_='comment-content')
-            list_user = []
-            for i in user:
-                list_user.append(i)
-            list_content = []
-            for j in content:
-                list_content.append(j)
-        except :
-            list_user[0] = "" 
-            list_content[0] = "目前还没有人评论这本书...."
-        book = '''
+        #try: 获取标签,无论是否能获取到内容,都会返回一个列表 即使是空列表
+        user = soup_b.find_all('span' , class_='comment-info')
+        content  = soup_b.find_all('p' , class_='comment-content')
+
+        list_user = []
+        for i in user:
+            list_user.append(i)
+        if not len(list_user):
+            list_user.append("")
+
+        list_content = []
+        for j in content:
+            list_content.append(j)
+        if not len(list_content):
+            list_content.append("目前还没有人评论这本书....")
+
+
+        book1 = '''
         <div style="margin:0 auto ; background-color:#ffffff;width:90%%">
             <div style="float:left; width:60%%">
                 <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;《%s》</h1>
@@ -77,17 +82,11 @@ def search():
             </div>
             <hr>
             <h2>读者评论</h2>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div style="float:left">
-                    %s
-                    </div>
-                    <div style="float:right">
-                    %s
-                    </div>
-                </div>
-            </div>
+            '''%(title ,author , star , nbg , intro)
 
+        book2  = ""
+        for (x , y) in zip(list_user , list_content):
+            book2 +='''
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div style="float:left">
@@ -98,55 +97,9 @@ def search():
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div style="float:left">
-                    %s
-                    </div>
-                    <div style="float:right">
-                    %s
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div style="float:left">
-                    %s
-                    </div>
-                    <div style="float:right">
-                    %s
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div style="float:left">
-                    %s
-                    </div>
-                    <div style="float:right">
-                    %s
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div style="float:left">
-                    %s
-                    </div>
-                    <div style="float:right">
-                    %s
-                    </div>
-                </div>
-            </div>
-<br>
-<hr>
-        '''%(title ,author , star , nbg , intro , list_content[0] ,   list_user[0] ,
-            list_content[1] ,   list_user[1] ,
-            list_content[2] ,   list_user[2] ,
-            list_content[3] ,   list_user[3] ,
-            list_content[4] ,   list_user[4] ,
-            list_content[5] ,   list_user[5] )
-        return book
+            '''%(y , x)
+        book3 = "<br><hr><hr>"
+        return book1+book2+book3
     except:
         return error_info
 
@@ -172,6 +125,8 @@ def today():
     img = next_ul.find_all('img')
     title = next_ul.find_all('h4')
     author = next_ul.find_all('div' , class_='author')
+    if not len(author):
+        author = "佚名"
 
     def lis(value):
         alist=[]
