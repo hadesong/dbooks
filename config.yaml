@@ -1,4 +1,4 @@
-libaries:
+handlers:
 - name: dbooks
   version: 1
 - name: numpy
