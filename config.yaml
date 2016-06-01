@@ -7,3 +7,10 @@ handlers:
 
 - url: /a-big-file.txt
   gzip: on
+
+- url: /robots.txt
+  static_path: robots.txt
+- url: /favicon.ico
+  static_path: favicon.ico
+- url: /static/
+  static_path: static
