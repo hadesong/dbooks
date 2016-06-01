@@ -1,6 +1,6 @@
 libaries:
-- name:dbooks
-  version:1
+- name: dbooks
+  version: 1
 - name: numpy
   version: "1.6.1"
 
