@@ -2,11 +2,6 @@ libaries:
 - name:dbooks
   version:1
 handlers:
-- url: /static/
-  gzip: on
-
-- url: /a-big-file.txt
-  gzip: on
 
 - url: /robots.txt
   static_path: robots.txt
