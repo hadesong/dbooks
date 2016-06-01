@@ -12,3 +12,6 @@ libaries:
   static_path: favicon.ico
 - url: /static
   static_path: app_package/static
+
+
+  
