@@ -3,7 +3,6 @@ libaries:
   version: 1
 - name: numpy
   version: "1.6.1"
- handlers:
 - url: /robots.txt
   static_path: robots.txt
 - url: /favicon.ico
